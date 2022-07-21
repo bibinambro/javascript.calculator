@@ -1,0 +1,93 @@
+<!-- Write a program to build the Calculator in JavaScript. -->
+<!DOCTYPE html>
+<html>
+
+<title>
+Calculator Program in JavaScript
+</title>
+<head>
+  <style type="text/css">
+    .button{
+      color: black;
+      background-color: lightcyan;
+      width:4.5%;
+    }
+body{
+  background-color: green;
+}
+}
+  </style>
+  <center>
+<h1>CALCULATOR</h1>
+<div class="container fluid">
+  <form  >
+  
+  <input  type="text" name="answer" id="answer1"><br><br>
+  <input class="button" type="button"  value="C" onclick="clr()" >
+  
+
+    <input class="button" type="button"  value="/" onclick="dis('/')">
+    <br><br>
+     <input class="button" type="button"  value="9" onclick="dis('9')">
+      <input class="button" type="button"  value="8" onclick="dis('8')">
+       <input class="button" type="button"  value="7" onclick="dis('7')"><br><br>
+        <input class="button" type="button"  value="6" onclick="dis('6')">
+         <input class="button" type="button"  value="5" onclick="dis('5')">
+          <input class="button" type="button"  value="4" onclick="dis('4')"><br><br>
+     <input class="button" type="button" value="3" onclick="dis('3')">
+      <input class="button" type="button"  value="2" onclick="dis('2')">
+       <input class="button" type="button"  value="1" onclick="dis('1')"><br><br>
+        <input class="button" type="button"  value="+" onclick="dis('+')">
+         <input class="button" type="button"  value="-" onclick="dis('-')">
+          <input class="button" type="button"  value="X" onclick="dis('*')"><br><br>
+          <input class="button" type="button"   value="=" onclick="solve()">
+            <input class="button" type="button"  value="B"  onclick="backspace()">
+          
+        </form>
+
+<br>
+
+<h3>HISTORY</h3>
+  <textarea id="his">
+    
+  </textarea><br>
+  <input class="button" type="button" value="clearAll" onclick="clearAll()">
+  <div/>
+
+</center>
+
+<script type="text/javascript">
+  let history='';
+   function backspace(){
+    var b=document.getElementById('answer1').value;
+    document.getElementById('answer1').value=b.substring(0,b.length-1);
+  }
+  function dis(val){
+    document.getElementById('answer1').value+=val;
+    addToHistory(val);
+  }
+  function solve(){
+     x=document.getElementById('answer1').value;
+   y=eval(x)
+    document.getElementById('answer1').value=y;
+addToHistory('='+y);
+  }
+  function clr(){
+    
+    document.getElementById('answer1').value='';
+    addToHistory(' ');
+  }
+  function addToHistory(value){
+    history+=value;
+    document.getElementById('his').innerHTML=history;
+
+  }
+  function clearAll(){
+document.getElementById('his').value=' ';
+  }
+</script>
+
+ </body>
+ </html>    
+
+ 
